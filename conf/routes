@@ -11,3 +11,7 @@ GET     /message                    controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# Bankin' specific routes
+GET		/api/bankin/arrondi/list	controllers.BankinController.list
+GET		/api/bankin/arrondi/stats   controllers.BankinController.stats
