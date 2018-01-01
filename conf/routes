@@ -13,5 +13,5 @@ GET     /message                    controllers.AsyncController.message
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 # Bankin' specific routes
-GET		/api/bankin/arrondi/list	controllers.BankinController.list
-GET		/api/bankin/arrondi/stats   controllers.BankinController.stats
+GET		/api/bankin/arrondi/list	controllers.BankinController.list(user, password)
+GET		/api/bankin/arrondi/stats   controllers.BankinController.stats(user, password, since, until)

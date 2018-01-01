@@ -2,14 +2,16 @@ package services;
 
 import java.util.stream.Collectors;
 
-import bridge.entities.Transactions;
-import bridge.entities.Transactions.Resource;
-import entities.ArrondiAggregation;
+import bridge.entities.BridgeTransactions;
+import bridge.entities.BridgeTransactions.Resource;
+import entities.ArrondisStats;
 import entities.Arrondis;
 
+/** Base service for computing/manipulating arrondis. Transactions with */
 public class ArrondiService {
 
-	public Arrondis computeArrondis(Transactions transactions) {
+	/** Compute The arrondis of a batch of transactions transactions. */
+	public Arrondis computeArrondis(BridgeTransactions transactions) {
 		final Arrondis result = new Arrondis();
 		result.transactions = transactions.resources.stream()
 				.filter(this::hasArrondi)
@@ -19,6 +21,7 @@ public class ArrondiService {
 					transaction.id = resource.id;
 					transaction.amount = resource.amount;
 					transaction.description = resource.description;
+					transaction.date = resource.date;
 					transaction.arrondi = computeArrondi(resource);
 					return transaction;
 				})
@@ -27,8 +30,9 @@ public class ArrondiService {
 		return result;
 	}
 
-	public ArrondiAggregation aggregateStats(Transactions transactions) {
-		final ArrondiAggregation result = new ArrondiAggregation();
+	/** Compute some aggregations stats from a batch of transactions. */
+	public ArrondisStats aggregateStats(BridgeTransactions transactions) {
+		final ArrondisStats result = new ArrondisStats();
 		
 		result.sum = transactions.resources.stream()
 				.filter(this::hasArrondi)
@@ -49,11 +53,11 @@ public class ArrondiService {
 
 	/** Base computation of an arrondi. */
 	private double computeArrondi(Resource resource) {
-		return 10 - resource.amount % 10;
+		return (10 - Math.abs(resource.amount) % 10) % 10;
 	}
 
 	/** Checks if an arrondi can be computed from this resource. */
 	private boolean hasArrondi(Resource resource) {
-		return !resource.isDeleted && resource.amount > 0;
+		return !resource.isDeleted;
 	}
 }

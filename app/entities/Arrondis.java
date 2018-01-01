@@ -1,5 +1,6 @@
 package entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,8 @@ public class Arrondis {
 
 		@JsonProperty("is_deleted")
 		public boolean isDeleted;
+
+		public String date;
 
 		// We would prefer to use BidDecimal for representing money
 		public double amount;
@@ -76,5 +79,25 @@ public class Arrondis {
 			this.isDeleted = isDeleted;
 		}
 
+		public String getDate() {
+			return date;
+		}
+
+		public void setDate(String date) {
+			this.date = date;
+		}
+
+		@Override
+		public String toString() {
+			return "Transaction [id=" + id + ", description=" + description + ", isDeleted=" + isDeleted + ", amount="
+					+ amount + ", arrondi=" + arrondi + "]";
+		}
+
 	}
+
+	@Override
+	public String toString() {
+		return "Arrondis [transactions=" + transactions + "]";
+	}
+
 }

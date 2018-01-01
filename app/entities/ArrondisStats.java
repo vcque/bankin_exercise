@@ -1,35 +1,13 @@
 package entities;
 
-import java.util.Date;
-
 /** Json mapping to the . We map only the fields we need. */
-public class ArrondiAggregation {
+public class ArrondisStats {
 
 	public double sum;
 
 	public long count;
 
 	public double average;
-
-	public Date from;
-
-	public Date to;
-
-	public Date getFrom() {
-		return from;
-	}
-
-	public void setFrom(Date from) {
-		this.from = from;
-	}
-
-	public Date getTo() {
-		return to;
-	}
-
-	public void setTo(Date to) {
-		this.to = to;
-	}
 
 	public double getSum() {
 		return sum;
@@ -53,6 +31,11 @@ public class ArrondiAggregation {
 
 	public void setAverage(double average) {
 		this.average = average;
+	}
+
+	@Override
+	public String toString() {
+		return "ArrondisStats [sum=" + sum + ", count=" + count + ", average=" + average + "]";
 	}
 
 }
