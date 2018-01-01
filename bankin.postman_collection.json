@@ -1,0 +1,130 @@
+{
+	"info": {
+		"name": "bankin",
+		"_postman_id": "3f835aca-404a-ecf7-5a75-1638b04fc0a4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Arrondi list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:9000/api/bankin/arrondi/list?user=user1%40mail.com&password=a!Strongp%23assword1",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"bankin",
+						"arrondi",
+						"list"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "user1%40mail.com",
+							"equals": true
+						},
+						{
+							"key": "password",
+							"value": "a!Strongp%23assword1",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Arrondi stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:9000/api/bankin/arrondi/list?user=user1%40mail.com&password=a!Strongp%23assword1",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"bankin",
+						"arrondi",
+						"list"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "user1%40mail.com",
+							"equals": true
+						},
+						{
+							"key": "password",
+							"value": "a!Strongp%23assword1",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Bridge Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Bankin-Version",
+						"value": "2016-01-18"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://sync.bankin.com/v2/authenticate?email=user1%40mail.com&password=a!Strongp%23assword1&client_id=775683bc70d94beaa8044c81b2f16006&client_secret=sMgdYUzUPpo1DxbR67qP2ZbuTmU7H9gikvWPigDnQro9fk0PsRcb4EvI0iRheAJr",
+					"protocol": "https",
+					"host": [
+						"sync",
+						"bankin",
+						"com"
+					],
+					"path": [
+						"v2",
+						"authenticate"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "user1%40mail.com",
+							"equals": true
+						},
+						{
+							"key": "password",
+							"value": "a!Strongp%23assword1",
+							"equals": true
+						},
+						{
+							"key": "client_id",
+							"value": "775683bc70d94beaa8044c81b2f16006",
+							"equals": true
+						},
+						{
+							"key": "client_secret",
+							"value": "sMgdYUzUPpo1DxbR67qP2ZbuTmU7H9gikvWPigDnQro9fk0PsRcb4EvI0iRheAJr",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
