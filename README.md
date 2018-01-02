@@ -1,4 +1,4 @@
-# bankin_exercise
+# bankin_test
 
 ## How to start the project
 
